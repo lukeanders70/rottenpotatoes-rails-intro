@@ -18,16 +18,16 @@ class MoviesController < ApplicationController
     end
     if !sort_order
       @movies = Movie.all
-      @title_hilite = "no_hilite"
-      @release_date_hilite = "no_hilite"
+      @title_hilite = false
+      @release_date_hilite = false
     elsif sort_order == "title"
       @movies = Movie.order(:title)
-      @title_hilite = "hilite"
-      @release_date_hilite = "no_hilite"
+      @title_hilite = true
+      @release_date_hilite = false
     else
       @movies = Movie.order(:release_date)
-      @title_hilite = "no_hilite"
-      @release_date_hilite = "hilite"
+      @title_hilite = false
+      @release_date_hilite = true
     end
   end
 
